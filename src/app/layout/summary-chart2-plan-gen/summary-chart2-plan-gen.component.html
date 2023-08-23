@@ -1,0 +1,60 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-spin-clockwise" [fullScreen]="true">
+    <p style="color: white"> Loading... </p>
+</ngx-spinner>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a [routerLink]="['/home']"><i class="pi pi-home"></i></a></li>
+        <li class="breadcrumb-item">
+            <a *ngIf="screenType==='Generation';else content1" [routerLink]="['/shipmentplanGen']">Shipmentplan Generation</a>
+            <ng-template #content1>
+                <a *ngIf="screenType==='Approval';else content2" [routerLink]="['/shipmentplanapproval']">Shipmentplan Approval</a>
+            </ng-template>
+            <ng-template #content2>
+                <a  [routerLink]="['/cancelshipmentapproval']">Cancel Shipment Approval</a>
+            </ng-template>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Summary Chart 2</li>
+    </ol>
+</nav>
+<div class="p-text-left p-px-3 p-py-2">
+    <button pButton pRipple label="Back" (click)="back()" icon="pi pi-arrow-left" class="p-mr-2 p-button-sm btn-color"></button>
+</div>
+<div class="card p-m-5">
+    <p-table [value]="cityDetails" styleClass="p-datatable-sm p-datatable-gridlines" [scrollable]="true"
+        scrollHeight="420px">
+
+        <ng-template pTemplate="colgroup">
+            <colgroup>
+                <col *ngFor="let col of columnCount" style="width:130px">
+            </colgroup>
+        </ng-template>
+
+        <ng-template pTemplate="header">
+            <tr>
+                <th class="p-text-bold">Transport Mode</th>
+                <th *ngFor="let header of headerList">{{header}}</th>
+                <th class="p-text-bold">Total</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-chart>
+            <tr>
+                <td>
+                    <span class="p-text-bold"
+                        *ngIf="chart.transportMode === 'Total'; else gn_next">{{chart.transportMode}}</span>
+                    <ng-template #gn_next>
+                        {{chart.transportMode}}
+                    </ng-template>
+                </td>
+                <td *ngFor="let city of chart.sourceCity">{{city | shipmentPlan }}</td>
+                <td *ngIf="chart.totalCount !== undefined">{{chart.totalCount}}</td>
+                <td *ngFor="let t of chart.values;let i = index">
+                    <span class="p-text-bold" *ngIf="i=== lastValue-1; else gn_content">{{t}}</span>
+                    <ng-template #gn_content>
+                        {{t}}
+                    </ng-template>
+                </td>
+            </tr>
+        </ng-template>
+
+    </p-table>
+</div>

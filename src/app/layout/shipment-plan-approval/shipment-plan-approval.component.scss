@@ -1,0 +1,74 @@
+.table{
+    width:400px;
+    background-color:#d9d9d9;
+    position:absolute;
+    // margin-left:-150px; /* half of width */
+    // margin-top:-150px;  /* half of height */
+    left:30%;
+}
+
+// @media screen and (min-width: 480px){
+//     .table{
+//         width: 345px;
+//         background-color: #d9d9d9;
+//         position: absolute;
+//         left: 0%;
+//     }
+//     .btn2{
+//        margin-left: -8px;
+//        padding-left: 13px;
+//     }
+//    }
+   @media screen and (max-width: 479px){
+    .table{
+        justify-content: center;
+        position: absolute;
+        width:80%;
+        left: auto;
+    }   
+    .btn2{
+       margin-left: -8px;
+       padding-left: 13px;
+    }
+   }
+   .colour{
+    background-color: #0682bb;
+    border-color: #0a7fb6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+   .p-text-bold {
+    font-weight: 700 !important;
+    font-size: 18px;
+}
+#wrapper {
+    width: 100%;
+    margin-top:5px;
+    margin-bottom:10px;
+    margin-left: 32px;
+    margin-right: 9px;
+    overflow: hidden; /* will contain if #first is longer than #second */
+    justify-content: center;
+    display: flex;
+}
+#first {
+    width: 100%;
+}
+.appcmt{
+    font-size: 18px;
+ }
+ @media screen  and (min-width: 600px) {
+    .appcmt{
+        font-size: 17px;
+     }
+ }
+
+ lookclr:hover{
+     color: #007bff;
+     text-decoration:none;
+ }
+   
+ .view{
+     display: none;
+ }

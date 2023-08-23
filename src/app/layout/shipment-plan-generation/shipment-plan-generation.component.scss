@@ -1,0 +1,121 @@
+.p-multiselect-list-option {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.space{
+    margin-left: 20px;
+    font-weight: 600;
+    float:right;
+}
+
+.spaceSize{
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 0.709rem;
+    float: right;
+    margin-top: 2px;
+}
+
+.btn-primary{
+    background-color: #0682bb;
+    border-color: #0a7fb6;
+    font-size: 0.875em !important;;
+}
+
+.btn-format{
+    background-color: #0682bb;
+    border-color: #0a7fb6;
+    margin-top: 10px;
+    height: 46px;
+}
+
+@media screen and (min-width:385px) {
+    .btn-primary{
+        font-size: 1em !important;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .make-center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+    }
+}
+
+.position{
+    color: #2196F3;
+    font-size: 18px;
+    cursor: pointer;
+    float: right;
+}
+
+.columnWidth{
+    width: 170px;
+}
+
+.lowWidth{
+    width: 70px;
+}
+
+.modal-dialog-centered.modal-dialog-scrollable .modal-content{
+    margin-top: 28px;
+}
+
+@media screen and (max-width:575px) {
+    .modal-dialog-centered.modal-dialog-scrollable .modal-content{
+        margin-top: 48px;
+    }
+}
+
+.table thead th{
+    background-color: #0682bb;
+}
+
+.table{
+    color: #495057;
+    text-align: center;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.modal-title{
+    font-size: 15px;
+}
+
+.p-field-checkbox > label, .p-field-radiobutton > label{
+    font-size: 22px;
+    margin-bottom: 0px;
+    font-weight: 500;
+}
+
+.checkBox-size{
+    transform: scale(1.5);
+}
+
+.modal-title{
+  color: lightcoral;
+}
+
+.view{
+    background-color: red;
+    font-size: 0%;
+}
+
+.lkvalue{
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.btn-excel{
+    color: #ffffff;
+    background: #0682bb;
+    border: 1px solid #0682bb;
+}
+
+.p-adjust{
+    height: 2rem;
+}

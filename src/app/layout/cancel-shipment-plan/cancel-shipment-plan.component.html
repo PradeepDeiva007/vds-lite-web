@@ -1,0 +1,289 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-spin-clockwise" [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a [routerLink]="['/home']"><i class="pi pi-home"></i></a></li>
+    <li class="breadcrumb-item active" aria-current="page">Cancel Shipment plan</li>
+  </ol>
+</nav>
+
+<div *ngIf="errorMessage==true">
+  <h6 style="text-align: center; color: lightcoral;"> {{errorMsgValue}} </h6>
+</div>
+<div class="p-grid p-3 mt-3 p-jc-center">
+  <div class=" p-mx-3 p-lg-3 p-md-3 dropdownstyle">
+  <p-dropdown class="viewstyle" [options]="shipmentplano" [(ngModel)]="selectedSP" optionLabel="name" placeholder="Select ShipmentPlan"></p-dropdown>
+  <button pButton pRipple label="Search"  (click)="searchPlan(selectedSP)" class="colour" ></button>  
+  </div>
+</div>
+<div class="card p-mx-3 p-mt-2" *ngIf="this.cancelChart.length >0">
+  <p-table #dt1 [value]="cancelChart" styleClass="p-datatable-sm p-datatable-gridlines"
+    [scrollable]="true" scrollHeight="420px" (onFilter)="changeTotalQuantity($event)" [rows]="10" [pageLinks]="3" [paginator]="true"
+    paginatorPosition="top" [globalFilterFields]="['loadNo','city','quantity','plannedLocation','transportMode','vlsp']">
+
+    <ng-template pTemplate="colgroup" let-columns>
+      <colgroup>
+        <col class="columnWidth">
+        <col class="columnWidth">
+        <col class="columnWidth">
+        <col class="columnWidth">
+        <col class="columnWidth">
+        <col class="columnWidth">
+      </colgroup>
+    </ng-template>
+    <!-- <ng-template pTemplate="caption">
+      <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+              <i class="pi pi-search"></i>
+              <input pInputText type="text" (input)="dt1.filterGlobal($any($event.target).value, 'contains')"  placeholder="Search keyword" />
+          </span>
+      </div>
+    </ng-template> -->
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="loadNo">
+          <div class="p-d-flex p-jc-center p-ai-center p-adjust">
+            <span class="p-text-bold">Load No</span>
+            <!-- <p-columnFilter field="loadNo" matchMode="in" display="menu" [showMatchModes]="false" [showOperator]="false"
+              [showAddButton]="false" [showClearButton]="true">
+              <ng-template pTemplate="header">
+                <div class="p-px-1 p-pt-0 p-pb-0">
+                  <span class="p-text-bold">Load No</span>
+                </div>
+              </ng-template>
+              <ng-template pTemplate="filter" let-value let-filter="filterCallback" class="space">
+                <p-multiSelect [ngModel]="value" [options]="loadList" placeholder="Any"
+                  (onChange)="filter($event.value)" optionLabel="name" optionValue="name">
+                  <ng-template let-option pTemplate="item">
+                    <div class="p-multiselect-list-option">
+                      <span class="p-ml-1">{{option.name}}</span>
+                    </div>
+                  </ng-template>
+                </p-multiSelect>
+              </ng-template>
+            </p-columnFilter> -->
+            <p-sortIcon field="loadNo"></p-sortIcon>
+          </div>
+
+          <p-multiSelect [options]="loadList" optionLabel="name" defaultLabel="All LoadNo"
+                        appendTo='body' [showClear]="true" [style]="{'width':'80%'}"
+                        optionValue="name" onfocus="blur" (onChange)="dt1.filter($event.value, 'loadNo', 'in')">
+                        <ng-template let-option pTemplate="item">
+                            <div class="p-multiselect-list-option">
+                                <span class="p-ml-1">{{option.name}}</span>
+                            </div>
+                        </ng-template>
+                        </p-multiSelect>
+        </th>
+        <th pSortableColumn="city">
+          <div class="p-d-flex p-jc-center p-ai-center p-adjust">
+            <span class="p-text-bold">City</span>
+            <!-- <p-columnFilter field="city" matchMode="in" display="menu" [showMatchModes]="false" [showOperator]="false"
+              [showAddButton]="false">
+              <ng-template pTemplate="header">
+                <div class="p-px-3 p-pt-3 p-pb-0">
+                  <span class="p-text-bold">City </span>
+                </div>
+              </ng-template>
+              <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                <p-multiSelect [ngModel]="value" [options]="cities" placeholder="Any" (onChange)="filter($event.value)"
+                  optionLabel="name" optionValue="name">
+                  <ng-template let-option pTemplate="item">
+                    <div class="p-multiselect-list-option">
+                      <span class="p-ml-1">{{option.name}}</span>
+                    </div>
+                  </ng-template>
+                </p-multiSelect>
+              </ng-template>
+            </p-columnFilter> -->
+            <p-sortIcon field="city"></p-sortIcon>
+          </div>
+          <p-multiSelect [options]="cities" optionLabel="name" defaultLabel="All City"
+                        appendTo='body' [showClear]="true" [style]="{'width':'80%'}"
+                        optionValue="name" onfocus="blur" (onChange)="dt1.filter($event.value, 'city', 'in')">
+                        <ng-template let-option pTemplate="item">
+                            <div class="p-multiselect-list-option">
+                                <span class="p-ml-1">{{option.name}}</span>
+                            </div>
+                        </ng-template>
+                        </p-multiSelect>
+        </th>
+        <th pSortableColumn="quantity"> 
+          <div class="p-d-flex p-jc-center p-ai-center p-adjust">
+            <span class="p-text-bold">Quantity</span>
+            <!-- <p-columnFilter field="quantity" matchMode="in" display="menu" [showMatchModes]="false"
+                [showOperator]="false" [showAddButton]="false">
+                <ng-template pTemplate="header">
+                    <div class="p-px-3 p-pt-3 p-pb-0">
+                        <span class="p-text-bold">Quantity</span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                    <p-multiSelect [ngModel]="value" [options]="quantityList" placeholder="Any"
+                        (onChange)="filter($event.value)" optionLabel="name" optionValue="name">
+                        <ng-template let-option pTemplate="item">
+                            <div class="p-multiselect-list-option">
+                                <span class="p-ml-1">{{option.name}}</span>
+                            </div>
+                        </ng-template>
+                    </p-multiSelect>
+                </ng-template>
+            </p-columnFilter> -->
+            <p-sortIcon field="quantity"></p-sortIcon>
+        </div>
+
+        <p-multiSelect [options]="quantityList" optionLabel="name" defaultLabel="All Quantity"
+        appendTo='body' [showClear]="true" [style]="{'width':'80%'}"
+        optionValue="name" onfocus="blur" (onChange)="dt1.filter($event.value, 'quantity', 'in')">
+        <ng-template let-option pTemplate="item">
+            <div class="p-multiselect-list-option">
+                <span class="p-ml-1">{{option.name}}</span>
+            </div>
+        </ng-template>
+        </p-multiSelect>
+        </th>
+
+        <th pSortableColumn="plannedLocation">
+          <div class="p-d-flex p-jc-center p-ai-center p-adjust">
+            <span class="p-text-bold">Planned Location</span>
+            <!-- <p-columnFilter field="plannedLocation" matchMode="in" display="menu" [showMatchModes]="false"
+              [showOperator]="false" [showAddButton]="false">
+              <ng-template pTemplate="header">
+                <div class="p-px-3 p-pt-3 p-pb-0">
+                  <span class="p-text-bold">Planned Location</span>
+                </div>
+              </ng-template>
+              <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                <p-multiSelect [ngModel]="value" [options]="locationList" placeholder="Any"
+                  (onChange)="filter($event.value)" optionLabel="name" optionValue="name">
+                  <ng-template let-option pTemplate="item">
+                    <div class="p-multiselect-list-option">
+                      <span class="p-ml-1">{{option.name}}</span>
+                    </div>
+                  </ng-template>
+                </p-multiSelect>
+              </ng-template>
+            </p-columnFilter> -->
+            <p-sortIcon field="plannedLocation"></p-sortIcon>
+          </div>
+
+          <p-multiSelect [options]="locationList" optionLabel="name" defaultLabel="All Location"
+                        appendTo='body' [showClear]="true" [style]="{'width':'80%'}"
+                        optionValue="name" onfocus="blur" (onChange)="dt1.filter($event.value, 'plannedLocation', 'in')">
+                        <ng-template let-option pTemplate="item">
+                            <div class="p-multiselect-list-option">
+                                <span class="p-ml-1">{{option.name}}</span>
+                            </div>
+                        </ng-template>
+                        </p-multiSelect>
+        </th>
+
+        <th pSortableColumn="transportMode">
+          <div class="p-d-flex p-jc-center p-ai-center p-adjust">
+            <span class="p-text-bold">Transport Mode</span>
+            <!-- <p-columnFilter field="transportMode" matchMode="in" display="menu" [showMatchModes]="false"
+              [showOperator]="false" [showAddButton]="false">
+              <ng-template pTemplate="header">
+                <div class="p-px-3 p-pt-3 p-pb-0">
+                  <span class="p-text-bold">Transport Mode </span>
+                </div>
+              </ng-template>
+              <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                <p-multiSelect [ngModel]="value" [options]="transportModes" placeholder="Any"
+                  (onChange)="filter($event.value)" optionLabel="name" optionValue="name">
+                  <ng-template let-option pTemplate="item">
+                    <div class="p-multiselect-list-option">
+                      <span class="p-ml-1">{{option.name}}</span>
+                    </div>
+                  </ng-template>
+                </p-multiSelect>
+              </ng-template>
+            </p-columnFilter> -->
+            <p-sortIcon field="transportMode"></p-sortIcon>
+          </div>
+          <p-multiSelect [options]="transportModes" optionLabel="name" defaultLabel="All Transport"
+                        appendTo='body' [showClear]="true" [style]="{'width':'80%'}"
+                        optionValue="name" onfocus="blur" (onChange)="dt1.filter($event.value, 'transportMode', 'in')">
+                        <ng-template let-option pTemplate="item">
+                            <div class="p-multiselect-list-option">
+                                <span class="p-ml-1">{{option.name}}</span>
+                            </div>
+                        </ng-template>
+                        </p-multiSelect>
+        </th>
+        <th pSortableColumn="vlsp">
+          <div class="p-d-flex p-jc-center p-ai-center p-adjust">
+            <span class="p-text-bold">VLSP</span>
+            <!-- <p-columnFilter field="vlsp" matchMode="in" display="menu" [showMatchModes]="false" [showOperator]="false"
+              [showAddButton]="false">
+              <ng-template pTemplate="header">
+                <div class="p-px-3 p-pt-3 p-pb-0">
+                  <span class="p-text-bold">VLSP </span>
+                </div>
+              </ng-template>
+              <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                <p-multiSelect [ngModel]="value" [options]="vlspList" placeholder="Any"
+                  (onChange)="filter($event.value)" optionLabel="name" optionValue="name">
+                  <ng-template let-option pTemplate="item">
+                    <div class="p-multiselect-list-option">
+                      <span class="p-ml-1">{{option.name}}</span>
+                    </div>
+                  </ng-template>
+                </p-multiSelect>
+              </ng-template>
+            </p-columnFilter> -->
+            <p-sortIcon field="vlsp"></p-sortIcon>
+          </div>
+
+          <p-multiSelect [options]="vlspList" optionLabel="name" defaultLabel="All VLSP"
+                        appendTo='body' [showClear]="true" [style]="{'width':'80%'}"
+                        optionValue="name" onfocus="blur" (onChange)="dt1.filter($event.value, 'vlsp', 'in')">
+                        <ng-template let-option pTemplate="item">
+                            <div class="p-multiselect-list-option">
+                                <span class="p-ml-1">{{option.name}}</span>
+                            </div>
+                        </ng-template>
+                        </p-multiSelect>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-row>
+      <tr>
+        <td>{{row.loadNo}}</td>
+        <td>{{row.city}}</td>
+        <td>{{row.quantity}}</td>
+        <td>{{row.plannedLocation}}</td>
+        <td>{{row.transportMode}}</td>
+        <td>{{row.vlsp}}</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td></td>
+        <td style="text-align:center;" class="p-text-bold">Totals</td>
+
+        <td style="text-align:center;" class="p-text-bold">{{totalQuantity}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+
+
+  <div class="p-grid p-3 mt-3 p-jc-center">
+    <div class="p-mx-3 p-lg-3 p-md-3 ">
+
+      <input id="float-input" #cancelReason name="cancelReason" [(ngModel)]="approvalcomment" class="p-inputtext-lg" style="width: 200px;" type="text"
+        pInputText placeholder="Mandatory to enter reason">
+    </div>
+    <div class="p-mx-3 p-lg-3 p-md-3 ">
+      <button pButton pRipple label="Cancel SP"  (click)="CancelSP(cancelReason)" class="colour" ></button>   
+    </div>
+
+  </div>
+
+</div>
+<div *ngIf="message==true">
+  <h6 style="text-align: center; color: lightcoral;"> Shipment planno not applicable to cancel / Invalid shipmentplano
+  </h6>
+</div>

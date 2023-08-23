@@ -1,0 +1,39 @@
+.nav-link{
+    white-space: nowrap;
+    max-width: fit-content;
+    font-weight: 400;
+    color: #0682bb;
+    display: block;
+    padding: 0.5rem 0.5rem;
+    // margin-bottom: 7px;
+    // background: linear-gradient(to left, white 50%, rgb(199 213 214) 50%) right;
+    // background-size: 300%;
+    // transition: .5s ease-out;
+    // padding-left: 7px;
+}
+.nav-link:hover{
+    background-position:left;
+}
+
+.nav-view::marker{
+    color: #0682bb;
+    font-size: 20px;
+}
+
+.view{
+    text-align: center;
+}
+
+.view-style{
+    list-style-type: disc;
+    padding-left: 0px;
+}
+
+.nav-view{
+    max-width: fit-content;
+}
+
+img.show{
+    display: block;
+    margin: 0 auto;
+}

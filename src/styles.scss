@@ -1,0 +1,796 @@
+@import "~bootstrap/scss/bootstrap";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  font-weight: 300;
+  line-height: 1;
+  height: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.p-component {
+  font-size: 0.875em !important;
+  font-weight: normal;
+}
+.p-grid {
+  margin-right: 0rem !important;
+}
+
+.p-datatable .p-datatable-thead > tr > th,
+.p-datatable .p-datatable-tbody > tr > td {
+  text-align: center !important;
+}
+
+.header {
+  background-color: #5e9dba;
+}
+.mat-drawer {
+  background-color: #5e9dba !important;
+}
+.navbar-nav .nav-link {
+  color:#fff;
+}
+.heading-name {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.p-dropdown {
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  user-select: none;
+  height: 30px;
+}
+.p-dropdown-item {
+  height: 30px;
+}
+.p-dropdown-label {
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+.p-menubar {
+  height: 2em;
+}
+
+@media screen and (max-width: 320px) {
+  .breadcrumb-item{
+      font-size: 12px;
+  }
+  .breadcrumb-item.active{
+    margin-top: 3px;
+  }
+  .breadcrumb-item + .breadcrumb-item{
+    margin-top: 3px;
+  }
+}
+
+@media screen and (min-device-width: 325px) and (max-device-width: 375px){
+  .breadcrumb-item{
+      font-size: 14px;
+  }
+  .breadcrumb-item.active{
+    margin-top: 3px;
+  }
+  .breadcrumb-item + .breadcrumb-item{
+    margin-top: 3px;
+  }
+}
+
+.p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
+  background-color: #7dbcd9;
+}
+
+.p-dialog .p-dialog-footer button{
+  background-color: #0682bb;
+  border-color: #0a7fb6;
+  border-radius: 0.25rem;
+}
+
+.pi-question-circle:before{
+  color: #0682bb;
+}
+
+.pi-exclamation-triangle:before{
+  color: #0682bb;
+}
+
+.clr{
+  color: red;
+}
+
+// @media screen and (min-width:425px) {
+//   .p-paginator .p-paginator-first, .p-paginator .p-paginator-prev, .p-paginator .p-paginator-next, .p-paginator .p-paginator-last{
+//     min-width: 2.257rem;
+//   }  
+// }
+
+@media screen and (max-width:424px) {
+  .p-paginator .p-paginator-first, .p-paginator .p-paginator-prev, .p-paginator .p-paginator-next, .p-paginator .p-paginator-last{
+    min-width: 1.257rem;
+  }  
+}
+
+.breadcrumb{
+  margin-bottom: 0px;
+}
+
+@media screen and (min-width:992px){
+  .arg1{
+    padding-right: 1px;
+    max-width: fit-content;
+    height: fit-content;
+  }
+  .arg2{
+    font-size: 30px;
+      padding-right: 10%;
+      height: fit-content;
+      text-align: center;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      left: 0%;
+      max-width: fit-content;
+      white-space: nowrap;
+  }
+  .arg3{
+    height: 1px;
+    left: 36%;
+    padding-top: 24px;
+  }
+  
+  .arg4{
+    font-size: 12px;
+      left: 58%;
+      max-width: fit-content;font-size: 12px;
+      left: 25%;
+      max-width: fit-content;
+      height: 50px;
+      padding-top: 6px;
+  }
+}
+
+@media screen and (min-width:981px) and (max-width:991px){
+  .arg1{
+    padding-right: 1px;
+    max-width: fit-content;
+    height: fit-content;
+  }
+  
+  .arg2{
+    font-size: 30px;
+      padding-right: 10%;
+      height: fit-content;
+      text-align: center;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      left: 0%;
+      max-width: fit-content;
+      white-space: nowrap;
+  }
+  
+  .arg3{
+    height: 1px;
+    left: 35%;
+    padding-top: 24px;
+  }
+  
+  .arg4{
+    font-size: 12px;
+      left: 58%;
+      max-width: fit-content;font-size: 12px;
+      left: 33%;
+      max-width: fit-content;
+      height: 50px;
+      padding-top: 6px;
+  }
+}
+
+@media screen and (min-width:768px) and (max-width: 980px) {
+  .arg1{
+    padding-right: 1px;
+    max-width: fit-content;
+    height: fit-content;
+  }
+  
+  .arg2{
+    font-size: 30px;
+    padding-right: 15px;
+    height: fit-content;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    left: 0%;
+    white-space: nowrap;
+    max-width: fit-content;
+  }
+  
+  .arg3{
+    height: 1px;
+    left: 30%;
+    padding-top: 20px;
+  }
+  
+  .arg4{
+    font-size: 12px;
+    left: 33%;
+    max-width: fit-content;
+    height: 50px;
+    padding-top: 6px;
+  }
+}
+
+@media screen and (min-width:649px) and (max-width: 768px) {
+  .arg1{
+    padding-right: 1px;
+    max-width: fit-content;
+    height: fit-content;
+    padding-top: 3px;
+  }
+  
+  .arg2{
+    font-size: 28px;
+    padding-right: 15px;
+    height: fit-content;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    left: 0%;
+    white-space: nowrap;
+    max-width: fit-content;
+    padding-left: 7px;
+  }
+  
+  .arg3{
+    height: 1px;
+    left: -30%;
+    padding-top: 38px;
+  }
+  
+  .arg4{
+    font-size: 12px;
+    left: 22%;
+    max-width: fit-content;
+    height: 50px;
+    padding-top: 15px;
+  }
+
+  .header{
+    height: 84px;
+  }
+
+  .name{
+    font-size: 19px;
+    white-space: nowrap;
+  }
+}
+
+@media screen and (min-width:575px) and (max-width: 649px) {
+  .arg1{
+    padding-right: 1px;
+    max-width: fit-content;
+    height: fit-content;
+    padding-top: 3px;
+  }
+  
+  .arg2{
+    font-size: 28px;
+    padding-right: 15px;
+    height: fit-content;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    left: 0%;
+    white-space: nowrap;
+    max-width: fit-content;
+    padding-left: 7px;
+  }
+  
+  .arg3{
+    height: 1px;
+    left: -34%;
+    padding-top: 38px;
+  }
+  
+  .arg4{
+    font-size: 12px;
+    left: 16%;
+    max-width: fit-content;
+    height: 50px;
+    padding-top: 17px;
+  }
+
+  .header{
+    height: 84px;
+  }
+
+  .name{
+    white-space: nowrap;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width:549px) and (max-width: 574px) {
+  .arg1{
+    font-size: 12px;
+    left: 0%;
+    max-width: fit-content;
+    height: fit-content;
+    padding-top: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  
+  .arg2{
+    font-size: 28px;
+    padding-right: 2px;
+    height: fit-content;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    left: 0%;
+    white-space: nowrap;
+    max-width: fit-content;
+    padding-left: 7px;
+  }
+  
+  .arg3{
+    height: 1px;
+    left: -36%;
+    padding-top: 40px;
+    padding-right: 4px;
+  }
+  
+  .arg4{
+    font-size: 12px;
+    left: -7%;
+    max-width: fit-content;
+    height: fit-content;
+    padding-top: 17px;
+    padding-left: 0;
+    padding-right: 2rem !important;
+}
+
+  .icon{
+    padding-left: 17px;
+  }
+
+  .header{    
+    background-color: #5e9dba;
+    height: 84px;
+  }
+
+  .name{
+    padding-left: 8px;
+    font-size: 16;
+    white-space: nowrap;
+  }
+}
+
+@media screen and (min-width:501px) and (max-width: 548px) {
+  .arg1{
+    font-size: 12px;
+    left: 0%;
+    max-width: fit-content;
+    height: fit-content;
+    padding-top: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  
+  .arg2{
+    font-size: 25px;
+    padding-right: 2px;
+    height: fit-content;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    left: 0%;
+    white-space: nowrap;
+    max-width: fit-content;
+    padding-left: 7px;
+  }
+  
+  .arg3{
+    height: 1px;
+    left: -34%;
+    padding-top: 38px;
+    padding-right: 4px;
+  }
+  
+  .arg4{
+    font-size: 12px;
+    left: -7%;
+    max-width: fit-content;
+    height: fit-content;
+    padding-top: 20px;
+    padding-left: 0;
+    padding-right: 2rem !important;
+  }
+
+  .icon{
+    padding-left: 21px;
+  }
+
+  .header{    
+    background-color: #5e9dba;
+    height: 82px;
+  }
+
+  .name{
+    padding-left: 8px;
+    font-size: 16px;
+    white-space: nowrap;
+  }
+}
+
+@media screen and (min-width:451px) and (max-width: 500px) {
+  .arg1{
+    font-size: 12px;
+    left: 0%;
+    max-width: fit-content;
+    height: fit-content;
+    padding-top: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  
+  .arg2{
+    font-size: 23px;
+    padding-right: 2px;
+    height: fit-content;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    left: 0%;
+    white-space: nowrap;
+    max-width: fit-content;
+    padding-left: 7px;
+  }
+  
+  .arg3{
+    height: 1px;
+    left: -35%;
+    padding-top: 37px;
+    padding-right: 4px;
+  }
+  
+  .arg4{
+    font-size: 12px;
+    left: -10%;
+    max-width: fit-content;
+    height: fit-content;
+    padding-top: 19px;
+    padding-left: 0;
+    padding-right: 2rem !important;
+}
+
+  .icon{
+    padding-left: 24px;
+  }
+
+  .header{    
+    background-color: #5e9dba;
+    height: 82px;
+  }
+
+  .name{
+    padding-left: 8px;
+    white-space: nowrap;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width:400px) and (max-width: 450px) {
+  .arg1{
+    font-size: 12px;
+    left: 0%;
+    max-width: fit-content;
+    height: fit-content;
+    padding-top: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  
+  .arg2{
+    font-size: 18px;
+    padding-right: 2px;
+    height: fit-content;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    left: 0%;
+    white-space: nowrap;
+    max-width: fit-content;
+    padding-left: 7px;
+  }
+  
+  .arg3{
+    height: 1px;
+    left: -40%;
+    padding-top: 37px;
+    padding-right: 4px;
+  }
+  
+  .arg4{
+    font-size: 12px;
+    left: -19%;
+    max-width: fit-content;
+    height: fit-content;
+    padding-top: 23px;
+    padding-left: 0;
+    white-space: nowrap;
+  }
+
+  .icon{
+    padding-left: 17px;
+  }
+
+  .header{    
+    background-color: #5e9dba;
+    height: 82px;
+  }
+
+  .name{
+    padding-left: 8px;
+    font-size: 14px;
+  }
+
+  .showView{
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width:361px) and (max-width: 400px) {
+  .arg1{
+    font-size: 12px;
+    left: 0%;
+    max-width: fit-content;
+    height: fit-content;
+    padding-top: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  
+  .arg2{
+    font-size: 18px;
+    padding-right: 2px;
+    height: fit-content;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    left: 0%;
+    white-space: nowrap;
+    max-width: fit-content;
+    padding-left: 7px;
+  }
+  
+  .arg3{
+    height: 1px;
+    left: -41%;
+    padding-top: 36px;
+    padding-right: 4px;
+  }
+  
+  .arg4{
+    font-size: 12px;
+    left: -24%;
+    max-width: fit-content;
+    height: fit-content;
+    padding-top: 20px;
+    padding-left: 0;
+  }
+
+  .icon{
+    padding-left: 17px;
+  }
+
+  .header{    
+    background-color: #5e9dba;
+    height: 82px;
+  }
+
+  .name{
+    padding-left: 0px;
+    white-space: nowrap;
+  }
+
+  .showView{
+    font-size: 22px;
+  }
+}
+
+@media screen and (min-width:341px) and (max-width: 360px) {
+  .arg1{
+    font-size: 12px;
+    left: 0%;
+    max-width: fit-content;
+    height: fit-content;
+    padding-top: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  
+  .arg2{
+    font-size: 18px;
+    padding-right: 2px;
+    height: fit-content;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    left: 0%;
+    white-space: nowrap;
+    max-width: fit-content;
+    padding-left: 7px;
+  }
+  
+  .arg3{
+    height: 1px;
+    left: -43%;
+    padding-top: 36px;
+    padding-right: 4px;
+  }
+  
+  .arg4{
+    font-size: 12px;
+    left: -24%;
+    max-width: fit-content;
+    height: fit-content;
+    padding-top: 22px;
+    padding-left: 0;
+  }
+
+  .icon{
+    padding-left: 17px;
+  }
+
+  .header{    
+    background-color: #5e9dba;
+    height: 82px;
+  }
+
+  .name{
+    padding-left: 0px;
+    white-space: nowrap;
+  }
+
+  .showView{
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width:320px) and (max-width: 340px) {
+  .arg1{
+    font-size: 12px;
+    left: 0%;
+    max-width: fit-content;
+    height: fit-content;
+    padding-top: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  
+  .arg2{
+    font-size: 18px;
+    padding-right: 2px;
+    height: fit-content;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    left: 0%;
+    white-space: nowrap;
+    max-width: fit-content;
+    padding-left: 7px;
+  }
+  
+  .arg3{
+    height: 1px;
+    left: -38%;
+    padding-top: 36px;
+    padding-right: 4px;
+  }
+  
+  .arg4{
+    font-size: 12px;
+    left: -24%;
+    max-width: fit-content;
+    height: fit-content;
+    padding-top: 20px;
+    padding-left: 0;
+  }
+
+  .icon{
+    padding-left: 17px;
+  }
+
+  .header{    
+    background-color: #5e9dba;
+    height: 82px;
+  }
+
+  .name{
+    padding-left: 0px;
+    white-space: nowrap;
+  }
+
+  .showView{
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width:300px) and (max-width: 318px) {
+  .arg1{
+    font-size: 12px;
+    left: 0%;
+    max-width: fit-content;
+    height: fit-content;
+    padding-top: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  
+  .arg2{
+    font-size: 12px;
+    padding-right: 2px;
+    height: fit-content;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    left: 0%;
+    white-space: nowrap;
+    max-width: fit-content;
+    padding-left: 7px;
+  }
+  
+  .arg3{
+    height: 1px;
+    left: -41%;
+    padding-top: 36px;
+    padding-right: 4px;
+  }
+  
+  .arg4{
+    font-size: 12px;
+    left: -33%;
+    max-width: fit-content;
+    height: fit-content;
+    padding-top: 24px;
+    padding-left: 0;
+    white-space: nowrap;
+  }
+
+  .icon{
+    padding-left: 17px;
+  }
+
+  .header{    
+    background-color: #5e9dba;
+    height: 82px;
+  }
+
+  .name{
+    padding-left: 8px;
+  }
+
+  .showView{
+    font-size: 16px;
+  }
+}
+
+.p-multiselect-panel{
+  position: absolute;
+  max-width: 50%;
+}
+
+.p-datatable .p-datatable-scrollable-footer{
+  overflow: scroll;
+}
+
+.p-datatable .p-datatable-scrollable-body{
+  overflow: scroll;
+}

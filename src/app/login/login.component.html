@@ -1,0 +1,30 @@
+<main role="main" style="min-height: 100vh;" *ngIf="PROD_ENV">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <h6 style="text-align: center; color: lightcoral;"> {{this.error_msg}} </h6>
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form form-signin">
+                        <h2 class="form-signin-heading text-center">Login</h2>
+                        <div class="form-group">
+                            <label for="username" class="text-dark">Username</label><br>
+                            <input type="text" name="username" formControlName="username" id="username"
+                                class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="text-dark">Password</label><br>
+                            <input type="password" name="password" formControlName="password" id="password"
+                                class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="remember-me" class="text-dark"><span>Remember me</span> <span><input
+                                        id="remember-me" name="remember-me" formControlName="rememberMe"
+                                        type="checkbox"></span></label><br>
+                            <input type="submit" name="submit" class="btn btn-primary btn-md" value="submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

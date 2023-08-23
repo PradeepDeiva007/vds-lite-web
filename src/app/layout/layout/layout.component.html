@@ -1,0 +1,55 @@
+<mat-sidenav-container autosize *ngIf="userLoggedin" class="nav-container" (backdropClick)="sidenav.close()">
+    <mat-sidenav #sidenav (keydown.escape)="sidenav.close()">
+        <nav class="nav">
+            <ul class="navbar-nav mx-3 mt-3">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/shipmentplanGen']" (click)="sidenav.close()">Shipment Plan Generation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  [routerLink]="['/shipmentplanapproval']" (click)="sidenav.close()">Shipment Plan Approval</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/CancelShipment']" (click)="sidenav.close()">Cancel Shipment Plan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/cancelshipmentapproval']" (click)="sidenav.close()">Cancel Shipment Approval</a>
+                </li>
+            </ul>
+        </nav>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <div class="header sticky-top py-2">
+            <div class="row" style="flex-wrap: nowrap;">
+                <div class="col-sm-1 col-md-1 col-lg-1 pl-4 arg1">
+                    <button type="button" pButton class="menu-button" icon="pi pi-bars"
+                        (click)="sidenav.open()"></button>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3 heading-name arg2">
+                    <span class="showView">Welcome to VDS</span>
+                </div>
+                 <div class="col-sm-1 col-md-2 col-lg-3 arg3">
+                    <p-dropdown [options]="authorityGroups" (ngModelChange)="changeAuthorityGroup($event)"
+                        [(ngModel)]="selectedAuthority" ngDefaultControl optionLabel="name" optionValue="name">
+                    </p-dropdown>
+                </div>
+                <div class="col-sm-4 col-md-3 col-lg-3 pr-1 p-text-white arg4">
+                    <div class="name" style="font-weight: bold;">{{username}}</div>
+                    <button mat-icon-button [matMenuTriggerFor]="usermenu">
+                        <mat-icon class="icon">account_circle</mat-icon>
+                    </button>
+                    <mat-menu #usermenu yPosition="below">
+                        <button mat-menu-item (click)="logout()">
+                            <mat-icon>logout</mat-icon>
+                            <span>Logout</span>
+                        </button>
+                    </mat-menu>
+                </div>
+            </div>
+        </div>
+        <main>
+            <router-outlet></router-outlet>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<p-confirmDialog [breakpoints]="{'960px': '75vw', '640px': '80vw', '420px': '80vw'}" [style]="{width: '50vw'}" header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
